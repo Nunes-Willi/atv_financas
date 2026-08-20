@@ -1,4 +1,4 @@
 class Categoria:
 
-    def __init__(self, gastos: str) -> None:
-        self.gastos = gastos
+    def __init__(self, gasto: str) -> None:
+        self.gasto = gasto
