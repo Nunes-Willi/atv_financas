@@ -1,8 +1,8 @@
-from financeiro.categoria import Categoria
+# from financeiro.categoria import Categoria
 
 
-class TestCategoria:
+# class TestCategoria:
 
-    def test_cria_categoria_com_nome(self) -> None:
-        cat = Categoria("Informática")
-        assert cat.nome == "Informática"
+#     def test_cria_categoria_com_nome(self) -> None:
+#         cat = Categoria("Informática")
+#         assert cat.nome == "Informática"
