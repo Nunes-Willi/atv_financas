@@ -1,4 +1,5 @@
 from financeiro.lancamento import Lancamento
+
 class Conta:
     def __init__(self, nome: str, idade: int, saldo: float) -> None:
         self.nome = nome
@@ -11,8 +12,6 @@ class Conta:
             raise ValueError("Precisa de nome do Usuário da conta")
         elif self.idade < 18:
             raise ValueError("Precisa ser maior de idade para abrir conta")
-        # elif self.saldo <= 0:
-        #     raise ValueError ("É preciso ter um SALDO maior que 0(zero)!!")
         
         print(f"Seja Bem Vindo {self.nome}! Estamos contando com seu dinheiro:)")
         return True
@@ -44,3 +43,6 @@ class Conta:
             )
 
         print(f"\nSaldo atual: R$ {self.calcular_saldo():.2f}")
+        
+    def obter_lancamentos(self) -> list[Lancamento]:
+        return self.lancamentos
