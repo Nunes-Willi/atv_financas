@@ -1,4 +1,5 @@
 # 💰 Sistema Financeiro em Python
+<sub>Projeto acadêmico disciplina POO-II.</sub>
 
 Projeto acadêmico desenvolvido em **Python** utilizando **Programação Orientada a Objetos** e **Pytest**. O sistema permite registrar receitas e despesas, calcular saldos, realizar fechamentos financeiros, conciliar lançamentos e gerar extratos mensais.
 
@@ -90,3 +91,8 @@ pytest
 **Casos especiais:**
 - Sem lançamentos no período: o extrato retorna totais iguais a zero.
 - Diferença na conciliação: o sistema lança uma mensagem de erro informando os totais e a diferença encontrada.
+
+## Autor
+
+**William Roberto Nunes**  
+Bacharelado em Sistemas de Informação
