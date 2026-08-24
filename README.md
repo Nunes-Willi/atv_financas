@@ -39,8 +39,8 @@ tests/
 ### 1. Clonar o repositório
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
-cd sistema-financeiro
+git clone (https://github.com/Nunes-Willi/atv_financas.git)
+cd atv_financas
 ```
 
 ### 2. Criar e ativar o ambiente virtual
