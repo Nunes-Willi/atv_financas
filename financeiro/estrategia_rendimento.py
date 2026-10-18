@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 class EstrategiaRendimento(ABC):
     @abstractmethod
     def calcular(self, total: float) -> float:
@@ -17,4 +16,4 @@ class PercentualRendido(EstrategiaRendimento):
         self.__percentual = percentual
         
     def calcular(self, total: float) -> float:
-        return total - (total * self.__percentual /100)
+        return total + (total * self.__percentual /100)

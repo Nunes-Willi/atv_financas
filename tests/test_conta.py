@@ -4,6 +4,11 @@ import pytest
 from financeiro.conta import Conta
 from financeiro.categoria import Categoria
 from financeiro.lancamento import Lancamento
+from financeiro.estrategia_rendimento import (
+    SemRendimento,
+    PercentualRendido
+)
+
 
 class TestConta:
     def test_criar_conta(self):
@@ -48,11 +53,51 @@ class TestConta:
     def test_calcular_saldo(self):
         conta = Conta("William", 20, 1000)
 
-        salario = Lancamento("Salário", 2000, date.today(), Categoria("Receita"))
-
-        mercado = Lancamento("Mercado", -300, date.today(), Categoria("Alimentação"))
+        salario = Lancamento(
+            "Salário", 2000, date.today(), Categoria("Receita")
+        )
+        mercado = Lancamento(
+            "Mercado", -300, date.today(), Categoria("Alimentação")
+        )
 
         conta.adicionar_lancamento(salario)
         conta.adicionar_lancamento(mercado)
 
-        assert conta.calcular_saldo() == 2700
+        assert conta.calcular_saldo(SemRendimento()) == 2700
+
+    def test_calcular_saldo_sem_rendimento(self):
+        conta = Conta("William", 20, 1000)
+
+        assert conta.calcular_saldo(SemRendimento()) == 1000
+
+    def test_calcular_saldo_com_rendimento(self):
+        conta = Conta("William", 20, 1000)
+
+        assert conta.calcular_saldo(PercentualRendido(10)) == 1100
+
+    def test_calcular_saldo_com_lancamentos_e_rendimento(self):
+        conta = Conta("William", 20, 1000)
+
+        salario = Lancamento(
+            "Salário", 200, date.today(), Categoria("Receita")
+        )
+        conta.adicionar_lancamento(salario)
+        
+        assert conta.calcular_saldo(PercentualRendido(10)) == 1320
+
+    def test_calcular_saldo_com_rendimento_zero(self):
+        conta = Conta("William", 20, 1000)
+
+        assert conta.calcular_saldo(PercentualRendido(0)) == 1000
+
+    def test_remover_lancamento_e_calcular_saldo(self):
+        conta = Conta("William", 20, 1000)
+
+        mercado = Lancamento(
+            "Mercado", -200, date.today(), Categoria("Alimentação")
+        )
+
+        conta.adicionar_lancamento(mercado)
+        conta.remover_lancamento(mercado)
+
+        assert conta.calcular_saldo(SemRendimento()) == 1000
