@@ -5,6 +5,9 @@ class ExportarCSV(ExportRelatorio):
         return []
     
     def add_cabecalho(self, documento, relatorio):
+       documento.append(["Data", "Descrição", "Valor"])
+       
+    def add_corpo(self, documento, relatorio):
         for lancamento in relatorio:
             documento.append([
                 lancamento.data,
