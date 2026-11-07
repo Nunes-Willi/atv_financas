@@ -1,4 +1,4 @@
-from exportador_relatorio import ExportRelatorio
+from financeiro.exportador_relatorio import ExportRelatorio
 
 class ExportarCSV(ExportRelatorio):
     def criar_doc(self, relatorio):
