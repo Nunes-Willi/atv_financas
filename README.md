@@ -34,7 +34,11 @@ atv_financas/
 │   ├── extrato.py
 │   ├── estrategia_rendimento.py
 │   ├── estrategia_juros.py
-│   └── estrategia_correcao.py
+│   ├── estrategia_correcao.py
+|   ├── leitor.py
+|   ├── exportador.py
+|   ├── importador_banco.py
+|   └── servico_importacao.py
 │
 ├── tests/
 │   ├── test_categoria.py
@@ -45,7 +49,10 @@ atv_financas/
 │   ├── test_extrato.py
 │   ├── test_estrategia_rendimento.py
 │   ├── test_estrategia_juros.py
-│   └── test_estrategia_correcao.py
+│   ├── test_estrategia_correcao.py
+│   ├── test_exportador.py
+│   ├── test_importador_banco.py
+│   └── test_servico_importacao.py
 │
 ├── requirements.txt
 └── README.md
