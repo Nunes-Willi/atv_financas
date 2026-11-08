@@ -120,6 +120,14 @@ pytest
 
 **Extensibilidade:** o padrão Strategy permite adicionar novas regras de cálculo sem modificar as classes existentes que utilizam a interface correspondente. Por exemplo, podemos criar uma classe `RendimentoMensal` que implemente `EstrategiaRendimento` e defina uma nova regra de rendimento. Depois de implementada, essa estratégia poderá ser utilizada por `Conta` por meio do método `calcular_saldo()`, sem necessidade de alterar o código interno desse método. O mesmo princípio permite criar novas estratégias de juros ou correção monetária, desde que implementem suas respectivas interfaces.
 
+**\*\*Escolha do leitor:\*\*** o \`CriadorImportador\` ficou responsável por escolher o leitor, usando o banco de origem para criar o importador com \`LeitorCSV\` ou \`LeitorJSON\`.
+
+**\*\*Simple Factory:\*\*** foi utilizada uma **Simple Factory** no importador, pois a escolha depende de um dado simples, o banco de origem, e pode ser centralizada no \`CriadorImportador\`.
+
+**\*\*Importador e exportador:\*\*** o importador utiliza **Simple Factory**, pois a escolha depende do banco informado. O exportador utiliza **Factory Method**, pois cada subclasse implementa a criação do documento no seu próprio formato.
+
+**\*\*Injeção de dependências:\*\*** ficou mais fácil testar o \`ServicoImportacao\`, pois ele recebe o \`CriadorImportador\`. Assim, esse colaborador pode ser substituído por um dublê sem alterar o serviço.
+
 **Casos especiais:**
 
 - Sem lançamentos no período: o extrato deve apresentar totais iguais a zero, conforme a implementação da classe.
